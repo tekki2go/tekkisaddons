@@ -1,0 +1,8 @@
+name: tekkisaddons
+version: '1.0-SNAPSHOT'
+main: org.concadium.tekkisaddons.tekkisaddons
+api-version: '1.21'
+prefix: TekkisAddons
+authors: [ tekki ]
+description: Tekkis addons
+website: concadium.net
