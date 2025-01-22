@@ -1,15 +1,16 @@
 name: tekkisaddons
-version: '1.0-SNAPSHOT'
+version: 1.0-SNAPSHOT
 main: org.concadium.tekkisaddons.tekkisaddons
-api-version: '1.21'
+api-version: 1.21
+author: tekki
+description: Tekkis Addons
 prefix: TekkisAddons
-authors: [ tekki ]
-description: Tekkis addons
 website: concadium.net
 commands:
   ridebee:
-    description: Allows a player to ride a bee.
+    description: Spawn a bee and ride it.
     usage: /ridebee
+    permission: tekkisaddons.ridebee
 permissions:
   tekkisaddons.ridebee:
     description: Permission to ride a bee.

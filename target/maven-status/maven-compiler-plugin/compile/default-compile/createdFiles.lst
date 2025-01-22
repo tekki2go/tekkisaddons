@@ -1,1 +1,5 @@
+org\concadium\tekkisaddons\TekkisUtils.class
 org\concadium\tekkisaddons\tekkisaddons.class
+org\concadium\tekkisaddons\BeeRideListener.class
+org\concadium\tekkisaddons\PufferfishEffectListener.class
+org\concadium\tekkisaddons\RideBeeCommand.class
