@@ -6,3 +6,11 @@ prefix: TekkisAddons
 authors: [ tekki ]
 description: Tekkis addons
 website: concadium.net
+commands:
+  ridebee:
+    description: Allows a player to ride a bee.
+    usage: /ridebee
+permissions:
+  tekkisaddons.ridebee:
+    description: Permission to ride a bee.
+    default: false
