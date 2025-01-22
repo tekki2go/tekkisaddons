@@ -9,9 +9,15 @@ website: concadium.net
 commands:
   ridebee:
     description: Spawn a bee and ride it.
-    usage: /ridebee
+    usage: /ridebee [on|off|summon]
+    aliases:
+      - rb
     permission: tekkisaddons.ridebee
+    permission-message: You do not have permission!
 permissions:
-  tekkisaddons.ridebee:
+  tekkisaddons.ridebee.ride:
     description: Permission to ride a bee.
+    default: false
+  tekkisaddons.ridebee.summon:
+    description: Permission to summon bees.
     default: false

@@ -6,7 +6,6 @@ import org.bukkit.entity.Player;
 import java.util.EnumSet;
 
 public class TekkisUtils {
-
     // Define a set of valid flower materials
     private static final EnumSet<Material> FLOWERS = EnumSet.of(
             Material.DANDELION,

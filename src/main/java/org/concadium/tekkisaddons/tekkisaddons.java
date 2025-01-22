@@ -8,11 +8,11 @@ public class tekkisaddons extends JavaPlugin {
     @Override
     public void onEnable() {
         // Register event listeners
-        Bukkit.getPluginManager().registerEvents(new BeeRideListener(), this);
+        Bukkit.getPluginManager().registerEvents(new BeeRideListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PufferfishEffectListener(), this);
 
         // Register commands
-        getCommand("ridebee").setExecutor(new RideBeeCommand());
+        getCommand("ridebee").setExecutor(new RideBeeCommand(this));
 
         getLogger().info("TekkisAddons enabled with bee-riding and pufferfish effects!");
     }

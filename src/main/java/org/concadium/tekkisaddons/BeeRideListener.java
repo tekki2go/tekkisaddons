@@ -1,32 +1,34 @@
 package org.concadium.tekkisaddons;
 
 import org.bukkit.entity.Bee;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 
 public class BeeRideListener implements Listener {
 
+    private final tekkisaddons plugin;
+
+    public BeeRideListener(tekkisaddons plugin) {
+        this.plugin = plugin;
+    }
+
     @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event) {
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        if (!(event.getRightClicked() instanceof Bee)) return;
+
         Player player = event.getPlayer();
+        Bee bee = (Bee) event.getRightClicked();
 
-        // Use the utility method to check if the player is holding a flower
+        // Check if player has /ridebee on
+        if (!player.hasMetadata("ridebee")) return;
+
         if (TekkisUtils.isHoldingFlower(player)) {
-            Bee nearestBee = player.getWorld().getNearbyEntities(player.getLocation(), 5, 5, 5).stream()
-                    .filter(entity -> entity.getType() == EntityType.BEE)
-                    .map(entity -> (Bee) entity)
-                    .findFirst()
-                    .orElse(null);
-
-            if (nearestBee != null) {
-                nearestBee.addPassenger(player);
-                player.sendMessage("You are now riding a bee!");
-            } else {
-                player.sendMessage("No bees are nearby to ride!");
-            }
+            event.setCancelled(true);
+            bee.setMetadata("ridden", new FixedMetadataValue(plugin, true));
+            bee.addPassenger(player);
         }
     }
 }
